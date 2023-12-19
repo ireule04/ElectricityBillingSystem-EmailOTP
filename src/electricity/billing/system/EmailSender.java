@@ -14,8 +14,8 @@ public class EmailSender {
     }
 
     private void sendEmail(String to) {
-        String from = "mirazeacademy@gmail.com";
-        String host = "imap.gmail.com"; // Your SMTP server
+        String from = "";
+        String host = ""; // Your SMTP server
 
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.host", host);

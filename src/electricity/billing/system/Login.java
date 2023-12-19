@@ -1,4 +1,4 @@
-package electricity.billing.system;
+    package electricity.billing.system;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,11 +32,11 @@ public class Login extends JFrame implements ActionListener {
         add(lblpassword);
 
         password = new JPasswordField();
-        password.setBounds(400, 80, 130, 20); // Decreased length of the password field
+        password.setBounds(400, 80, 130, 20); //  length of the password field
         add(password);
 
         showPasswordCheckBox = new JCheckBox();
-        showPasswordCheckBox.setBounds(530, 80, 20, 20); // Positioned the checkbox next to the password field
+        showPasswordCheckBox.setBounds(530, 80, 20, 20); // checkbox next side of password field
         add(showPasswordCheckBox);
 
         JLabel loginas = new JLabel("Login as:");

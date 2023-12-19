@@ -108,7 +108,7 @@ public class NewCustomer extends JFrame implements ActionListener {
 
         cancel = new JButton("Cancel");
         cancel.setBounds(340, 390, 100, 25);
-        cancel.setBackground(Color.red);
+        cancel.setBackground(Color.black);
         cancel.setForeground(Color.white);
         cancel.addActionListener(this);
         p.add(cancel);
@@ -202,7 +202,7 @@ private boolean isEmailExists(String email) {
         // Email configuration
         String toEmail = customerEmail;
         String fromEmail = "bijulibattipowerltd@gmail.com"; // Your email address
-        String password = "utch alfs hfwh cgbm"; // Your email ko password
+        String password = "ckcm ohjk zjur fsnf"; // Your email ko password
         String host = "smtp.gmail.com";
         String port = "587";
 

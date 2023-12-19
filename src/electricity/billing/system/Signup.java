@@ -174,7 +174,7 @@ public class Signup extends JFrame implements ActionListener {
                 // Ask for OTP confirmation
                 String enteredOTP = JOptionPane.showInputDialog("Enter the OTP sent to your email:");
 
-                // Verify OTP
+                // Verify OTP of the customer ani send error if incoreect
                 if (!enteredOTP.equals(otp)) {
                     JOptionPane.showMessageDialog(null, "Incorrect OTP. Please try again.");
                     return; // Do not proceed with account creation
@@ -207,8 +207,8 @@ public class Signup extends JFrame implements ActionListener {
 
     private void sendEmail(String recipient, String otp) {
         // Replace with your email configuration and credentials
-        String email = "bijulibattipowerltd@gmail.com";
-        String password = "utch alfs hfwh cgbm";
+        String email = "";
+        String password = "";
 
         // Setup mail server properties
         Properties properties = new Properties();

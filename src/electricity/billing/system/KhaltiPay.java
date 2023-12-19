@@ -1,4 +1,5 @@
-import electricity.billing.system.PayBill;
+package electricity.billing.system;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,6 +9,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import okhttp3.*;
+
+import okhttp3.MediaType;
 
 public class KhaltiPay extends JFrame implements ActionListener {
 
@@ -32,6 +35,7 @@ public class KhaltiPay extends JFrame implements ActionListener {
         setSize(800, 600);
         setLocation(400, 150);
         setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 
@@ -42,17 +46,18 @@ public class KhaltiPay extends JFrame implements ActionListener {
         } else if (ae.getSource().equals(payButton)) {
             try {
                 JSONObject paymentData = new JSONObject();
-                paymentData.put("public_key", "your_public_key"); // Replace with your own public key
+                paymentData.put("public_key", "test_public_key_e6c4048086fd4fdfa1706c394da206cf"); // Replace with your own public key
                 paymentData.put("amount", "20"); // Replace with the actual amount
                 paymentData.put("product_identity", "Electricity Bill Payment");
                 paymentData.put("product_name", "Electricity Bill");
 
                 OkHttpClient client = new OkHttpClient();
-                RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), paymentData.toJSONString());
+                MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+                RequestBody body = RequestBody.create(JSON, paymentData.toJSONString());
 
                 Request request = new Request.Builder()
                         .url("https://khalti.com/api/v2/payment/initialize/")
-                        .addHeader("Authorization", "your_secret_key") // Replace with your secret key
+                        .addHeader("Authorization", "test_secret_key_1e31dfeb38274dd79e992b8053878ab9") // Replace with your secret key
                         .post(body)
                         .build();
 
@@ -65,9 +70,7 @@ public class KhaltiPay extends JFrame implements ActionListener {
                 String paymentURL = (String) jsonResponse.get("redirect");
                 Desktop.getDesktop().browse(new URI(paymentURL));
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
+            } catch (IOException | ParseException e) {
                 e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();

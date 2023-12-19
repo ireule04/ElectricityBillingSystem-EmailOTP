@@ -127,6 +127,11 @@ public class UpdateInformation extends JFrame implements ActionListener{
             String email = tfemail.getText();
             String phone = tfphone.getText();
             
+             if (isEmailExists(email)) {
+            JOptionPane.showMessageDialog(null, "Email address already exists");
+            return;
+        }
+            
             try {
                 Conn c = new Conn();
                 c.s.executeUpdate("update customer set address = '"+address+"', city = '"+city+"', state = '"+state+"', email = '"+email+"', phone = '"+phone+"' where meter_no = '"+meter+"'");
@@ -140,6 +145,18 @@ public class UpdateInformation extends JFrame implements ActionListener{
             setVisible(false);
         }
     }
+    
+    private boolean isEmailExists(String email) {
+    try {
+        Conn c = new Conn();
+        String query = "SELECT * FROM customer WHERE email = '" + email + "'";
+        ResultSet rs = c.s.executeQuery(query);
+        return rs.next(); // If there's a row with the email, it already exists
+    } catch (Exception e) {
+        e.printStackTrace();
+        return true; // Assume email exists on error
+    }
+}
 
     public static void main(String[] args) {
         new UpdateInformation("");

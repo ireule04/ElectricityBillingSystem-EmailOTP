@@ -54,7 +54,7 @@ public class OutlineDetection {
 private void detectOutlineChanges() {
     try {
         // Query the database for all of the customers
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM customer");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM bill");
 
         // Iterate over the results of the query
         while (resultSet.next()) {

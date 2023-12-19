@@ -201,8 +201,8 @@ private boolean isEmailExists(String email) {
     private void sendEmail(String meter, String customerEmail) {
         // Email configuration
         String toEmail = customerEmail;
-        String fromEmail = "bijulibattipowerltd@gmail.com"; // Your email address
-        String password = "ckcm ohjk zjur fsnf"; // Your email ko password
+        String fromEmail = ""; // Your email address
+        String password = ""; // Your email ko password
         String host = "smtp.gmail.com";
         String port = "587";
 
